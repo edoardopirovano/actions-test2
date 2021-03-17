@@ -1,0 +1,20 @@
+name: "Code Scanning - CodeQL"
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  codeql:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Upload
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          token: xxx
+          sarif_file: res.sarif
